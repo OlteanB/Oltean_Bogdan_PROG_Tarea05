@@ -5,13 +5,41 @@
  */
 package tarea05;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author bogdan
  */
 public class Turismo {
+
     private String matricula, marca, modelo;
     private int cilindrada;
     private boolean disponible;
-    
+
+    public Turismo(String matricula, String marca, String modelo, int cilindrada) {
+        if (compruebaMatricula(matricula)) {
+            this.matricula = matricula;
+        } else {
+            throw new ExcepcionAlquilerVehiculos("Error matricula.");
+        }
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cilindrada = cilindrada;
+    }
+
+    public Turismo(Turismo turismo) {
+        this.matricula = turismo.matricula;
+        this.marca = turismo.marca;
+        this.modelo = turismo.modelo;
+        this.cilindrada = turismo.cilindrada;
+    }
+
+    private boolean compruebaMatricula(String matricula) {
+        Pattern comprueba = Pattern.compile("^\\d{4}[A-Z]{3}");
+        Matcher matcher = comprueba.matcher(matricula);
+        return matcher.matches();
+    }
+
 }
