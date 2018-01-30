@@ -66,4 +66,9 @@ public class Turismo {
         this.disponible = disponible;
     }
 
+    @Override
+    public String toString() {
+        return "Turismo{" + "matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + ", cilindrada=" + cilindrada + ", disponible=" + disponible + '}';
+    }
+
 }
