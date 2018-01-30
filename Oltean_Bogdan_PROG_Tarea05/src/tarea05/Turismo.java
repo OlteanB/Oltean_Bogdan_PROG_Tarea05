@@ -10,5 +10,8 @@ package tarea05;
  * @author bogdan
  */
 public class Turismo {
+    private String matricula, marca, modelo;
+    private int cilindrada;
+    private boolean disponible;
     
 }
