@@ -57,6 +57,30 @@ public class Cliente {
         Matcher matcher = comprueba.matcher(codigoPostal);
         return matcher.matches();
     }
+    
+       public String getNombre() {
+        return nombre;
+    }
+
+    public String getDNI() {
+        return dni;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public int getIdentificador() {
+        return identificador;
+    }
 
 
 }
