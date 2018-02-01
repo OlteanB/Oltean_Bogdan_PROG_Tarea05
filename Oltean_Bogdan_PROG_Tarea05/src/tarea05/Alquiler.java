@@ -52,18 +52,20 @@ public class Alquiler {
         turismo.setDisponible(true);
     }
 
-
     public int difDias(Date fechaInicio, Date fechaFin) {
         int milisegundos = (int) (fechaFin.getTime() - fechaInicio.getTime());
         dias = milisegundos / MS_DIA;
         return dias + 1;
     }
 
+    public double getPrecio() {
+        double precio = dias * PRECIO_DIA + turismo.getCilindrada() / 100;
+        return precio;
+    }
+
     @Override
     public String toString() {
-        return "Alquiler{" + "Cliente=" + cliente + ", Turismo=" + turismo + ", fecha=" + fecha + ", dias=" + dias +'}';
+        return "Alquiler{" + "Cliente=" + cliente + ", Turismo=" + turismo + ", fecha=" + fecha + ", dias=" + dias + '}';
     }
-    
-    
 
 }
