@@ -22,6 +22,13 @@ public class Alquiler {
     private final int MS_DIA = 1000 * 60 * 60 * 24;
     private final double PRECIO_DIA = 30;
 
+    public Alquiler(Cliente cliente, Turismo turismo) {
+        this.cliente = cliente;
+        this.turismo = turismo;
+        fecha = new Date();
+        dias = 0;
+        turismo.setDisponible(false);
+    }
     
 
 }
