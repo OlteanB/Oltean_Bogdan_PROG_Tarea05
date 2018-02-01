@@ -149,5 +149,27 @@ public class AlquilerVehiculos {
         }
     }
 
+    public void openAlquiler(Cliente cliente, Turismo turismo) {
+        int posicion = 0;
+        boolean posicionEncontrada = false;
+        while (posicion < alquileres.length && !posicionEncontrada) {
+            if (alquileres[posicion] == null) {
+                posicionEncontrada = true;
+            } else if (alquileres[posicion].getTurismo().getMatricula().equals(turismo.getMatricula()) 
+                    && alquileres[posicion].getCliente().equals(cliente)
+                    && !alquileres[posicion].getTurismo().getDisponible()) {
+                throw new ExcepcionAlquilerVehiculos("Ya existe un alquiler abierto para este vehículo");
+            } else {
+                posicion++;
+            }
+        }
+        if (posicionEncontrada) {
+            alquileres[posicion] = new Alquiler(cliente, turismo);
+        } else {
+            throw new ExcepcionAlquilerVehiculos("El array de trabajos está lleno.");
+        }
+
+    }
+
 
 }
