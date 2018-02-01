@@ -36,5 +36,22 @@ public class AlquilerVehiculos {
     public Alquiler[] getAlquileres() {
         return alquileres;
     }
-
+    
+    public Cliente getCliente(String dni) {
+        int posicion = 0;
+        boolean encontrado = false;
+        while (posicion < clientes.length && !encontrado) {
+            if (clientes[posicion] != null && clientes[posicion].getDNI().equals(dni)) {
+                encontrado = true;
+            } else {
+                posicion++;
+            }
+        }
+        if (encontrado) {
+            return clientes[posicion];
+        } else {
+            return null;
+        }
+    }
+ 
 }
