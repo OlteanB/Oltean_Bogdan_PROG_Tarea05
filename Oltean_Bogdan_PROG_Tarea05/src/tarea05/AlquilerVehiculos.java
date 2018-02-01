@@ -171,5 +171,25 @@ public class AlquilerVehiculos {
 
     }
 
+    public void closeAlquiler(Cliente cliente, Turismo turismo) {
+        int posicion = 0;
+        boolean encontrado = false;
+        while (posicion < alquileres.length && !encontrado) {
+            if (alquileres[posicion] != null
+                    && alquileres[posicion].getTurismo().getMatricula().equals(turismo.getMatricula())
+                    && alquileres[posicion].getCliente().getDNI().equals(cliente.getDNI())
+                    && !alquileres[posicion].getTurismo().getDisponible()) {
+                encontrado = true;
+            } else {
+                posicion++;
+            }
+        }
+        if (encontrado) {
+            alquileres[posicion].close();
+        } else {
+            throw new ExcepcionAlquilerVehiculos("No hay ningún trabajo abierto para ese vehículo");
+        }
+
+    }
 
 }
