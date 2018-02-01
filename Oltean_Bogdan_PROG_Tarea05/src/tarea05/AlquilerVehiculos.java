@@ -93,4 +93,21 @@ public class AlquilerVehiculos {
         }
     }
 
+    public Turismo getTurismo(String matricula) {
+        int posicion = 0;
+        boolean encontrado = false;
+        while (posicion < turismos.length && !encontrado) {
+            if (turismos[posicion] != null && turismos[posicion].getMatricula().equals(matricula)) {
+                encontrado = true;
+            } else {
+                posicion++;
+            }
+        }
+        if (encontrado) {
+            return turismos[posicion];
+        } else {
+            return null;
+        }
+    }
+ 
 }
